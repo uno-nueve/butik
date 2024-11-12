@@ -20,7 +20,7 @@ export default function LoginPage() {
         e.preventDefault();
 
         try {
-            const response = await fetch("http://localhost:3000/login", {
+            const response = await fetch("http://localhost:3000/api/login", {
                 method: "POST",
                 body: JSON.stringify(formData),
                 headers: { "Content-Type": "application/json" },
@@ -28,9 +28,7 @@ export default function LoginPage() {
 
             if (!response.ok) {
                 if (response.status === 401) {
-                    setError(
-                        "Authentication failed: Invalid email or password."
-                    );
+                    setError("Authentication failed: Invalid email or password.");
                 } else if (response.status === 500) {
                     setError("Internal server error. Try again later.");
                 }
@@ -48,33 +46,66 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="w-full h-screen p-8">
-            <h1 className="mb-4 text-4xl">Login</h1>
-            <form onSubmit={handleSubmit}>
-                <div className="flex flex-col gap-4 p-4 border bg-slate-100">
-                    <label htmlFor="email">Email</label>
-                    <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                    />
+        <div className="flex flex-col items-center w-full h-screen max-w-screen-sm p-8">
+            <h1 className="mb-4 text-4xl font-semibold">Bienvenido</h1>
+            <p className="mb-6">
+                <span>¿No tenés cuenta?</span>{" "}
+                <a className="font-semibold underline">Registrate gratis</a>
+            </p>
+            <form onSubmit={handleSubmit} className="w-full">
+                <div className="flex flex-col gap-6">
+                    <label htmlFor="email">
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            placeholder="Email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="w-full px-6 py-4 font-medium border rounded-xl border-neutral-400"
+                        />
+                    </label>
 
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                    />
+                    <label htmlFor="password">
+                        <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            placeholder="Contraseña"
+                            value={formData.password}
+                            onChange={handleChange}
+                            className="w-full px-6 py-4 font-medium border rounded-xl border-neutral-400"
+                        />
+                    </label>
 
-                    <button type="submit" className="p-2 text-white bg-black">
-                        Log in
+                    <button
+                        type="submit"
+                        className="px-6 py-4 font-medium text-white bg-black rounded-xl"
+                    >
+                        Iniciar sesión
                     </button>
                 </div>
             </form>
+            <a className="mt-4 font-semibold underline">¿Necesitás ayuda para iniciar sesión?</a>
+            <div className="flex items-center w-full gap-2 my-4">
+                <div className="w-full h-[1px] bg-neutral-400" />
+                ó
+                <div className="w-full h-[1px] bg-neutral-400" />
+            </div>
+            <div className="flex flex-col w-full gap-6">
+                <button className="inline-flex px-6 py-4 font-medium border border-black rounded-xl">
+                    Iniciar sesión con Google
+                </button>
+                <button className="inline-flex px-6 py-4 font-medium border border-black rounded-xl">
+                    Iniciar sesión con Facebook
+                </button>
+                <button className="inline-flex px-6 py-4 font-medium border border-black rounded-xl">
+                    Iniciar sesión con Apple
+                </button>
+                <button className="inline-flex px-6 py-4 font-medium border border-black rounded-xl">
+                    Iniciar sesión con Magic Link
+                </button>
+            </div>
 
             {error && <p className="mt-4 text-red-500">{error}</p>}
             {user && <p>user id: {user}</p>}
