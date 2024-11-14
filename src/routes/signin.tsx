@@ -1,4 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
+import googleSvg from "../assets/google.svg";
+import facebookSvg from "../assets/facebook.svg";
+import appleLightSvg from "../assets/Apple_light.svg";
 
 export default function LoginPage() {
     const [formData, setFormData] = useState({
@@ -50,7 +53,9 @@ export default function LoginPage() {
             <h1 className="mb-4 text-4xl font-semibold">Bienvenido</h1>
             <p className="mb-6">
                 <span>¿No tenés cuenta?</span>{" "}
-                <a className="font-semibold underline">Registrate gratis</a>
+                <a href="/signup" className="font-semibold underline">
+                    Registrate gratis
+                </a>
             </p>
             <form onSubmit={handleSubmit} className="w-full">
                 <div className="flex flex-col gap-6">
@@ -86,29 +91,33 @@ export default function LoginPage() {
                     </button>
                 </div>
             </form>
-            <a className="mt-4 font-semibold underline">¿Necesitás ayuda para iniciar sesión?</a>
+            {error && <p className="mt-4 text-red-500">{error}</p>}
+            {user && <p>user id: {user}</p>}
+            <a href="/" className="mt-4 font-semibold underline">
+                ¿Necesitás ayuda para iniciar sesión?
+            </a>
             <div className="flex items-center w-full gap-2 my-4">
                 <div className="w-full h-[1px] bg-neutral-400" />
                 ó
                 <div className="w-full h-[1px] bg-neutral-400" />
             </div>
             <div className="flex flex-col w-full gap-6">
-                <button className="inline-flex px-6 py-4 font-medium border border-black rounded-xl">
+                <button className="inline-flex gap-4 px-6 py-4 font-medium border border-black rounded-xl">
+                    <img src={googleSvg} alt="Google logo" className="h-6" />
                     Iniciar sesión con Google
                 </button>
-                <button className="inline-flex px-6 py-4 font-medium border border-black rounded-xl">
+                <button className="inline-flex gap-4 px-6 py-4 font-medium border border-black rounded-xl">
+                    <img src={facebookSvg} alt="Facebook logo" className="h-6" />
                     Iniciar sesión con Facebook
                 </button>
-                <button className="inline-flex px-6 py-4 font-medium border border-black rounded-xl">
+                <button className="inline-flex gap-4 px-6 py-4 font-medium border border-black rounded-xl">
+                    <img src={appleLightSvg} alt="Apple logo" className="h-6" />
                     Iniciar sesión con Apple
                 </button>
-                <button className="inline-flex px-6 py-4 font-medium border border-black rounded-xl">
+                <button className="inline-flex gap-4 px-6 py-4 font-medium border border-black rounded-xl">
                     Iniciar sesión con Magic Link
                 </button>
             </div>
-
-            {error && <p className="mt-4 text-red-500">{error}</p>}
-            {user && <p>user id: {user}</p>}
         </div>
     );
 }
