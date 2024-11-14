@@ -2,6 +2,9 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import googleSvg from "../assets/google.svg";
 import facebookSvg from "../assets/facebook.svg";
 import appleLightSvg from "../assets/Apple_light.svg";
+import { Button } from "@/components/UI/button";
+import { Divider } from "@/components/UI/divider";
+import { Input } from "@/components/UI/input";
 
 export default function LoginPage() {
     const [formData, setFormData] = useState({
@@ -60,35 +63,26 @@ export default function LoginPage() {
             <form onSubmit={handleSubmit} className="w-full">
                 <div className="flex flex-col gap-6">
                     <label htmlFor="email">
-                        <input
+                        <Input
                             type="email"
                             name="email"
                             id="email"
                             placeholder="Email"
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full px-6 py-4 font-medium border rounded-xl border-neutral-400"
                         />
                     </label>
-
                     <label htmlFor="password">
-                        <input
+                        <Input
                             type="password"
                             name="password"
                             id="password"
                             placeholder="Contraseña"
                             value={formData.password}
                             onChange={handleChange}
-                            className="w-full px-6 py-4 font-medium border rounded-xl border-neutral-400"
                         />
                     </label>
-
-                    <button
-                        type="submit"
-                        className="px-6 py-4 font-medium text-white bg-black rounded-xl"
-                    >
-                        Iniciar sesión
-                    </button>
+                    <Button>Iniciar sesión</Button>
                 </div>
             </form>
             {error && <p className="mt-4 text-red-500">{error}</p>}
@@ -96,27 +90,23 @@ export default function LoginPage() {
             <a href="/" className="mt-4 font-semibold underline">
                 ¿Necesitás ayuda para iniciar sesión?
             </a>
-            <div className="flex items-center w-full gap-2 my-4">
-                <div className="w-full h-[1px] bg-neutral-400" />
-                ó
-                <div className="w-full h-[1px] bg-neutral-400" />
-            </div>
+            <Divider>ó</Divider>
             <div className="flex flex-col w-full gap-6">
-                <button className="inline-flex gap-4 px-6 py-4 font-medium border border-black rounded-xl">
+                <Button variant="secondary" className="inline-flex gap-4">
                     <img src={googleSvg} alt="Google logo" className="h-6" />
                     Iniciar sesión con Google
-                </button>
-                <button className="inline-flex gap-4 px-6 py-4 font-medium border border-black rounded-xl">
+                </Button>
+                <Button variant="secondary" className="inline-flex gap-4">
                     <img src={facebookSvg} alt="Facebook logo" className="h-6" />
                     Iniciar sesión con Facebook
-                </button>
-                <button className="inline-flex gap-4 px-6 py-4 font-medium border border-black rounded-xl">
+                </Button>
+                <Button variant="secondary" className="inline-flex gap-4">
                     <img src={appleLightSvg} alt="Apple logo" className="h-6" />
                     Iniciar sesión con Apple
-                </button>
-                <button className="inline-flex gap-4 px-6 py-4 font-medium border border-black rounded-xl">
+                </Button>
+                <Button variant="secondary" className="inline-flex gap-4">
                     Iniciar sesión con Magic Link
-                </button>
+                </Button>
             </div>
         </div>
     );
