@@ -62,7 +62,7 @@ export default function RegisterPage() {
                 return;
             }
 
-            const data = response.json();
+            const data = await response.json();
             console.log(data);
         } catch (error) {
             console.error("Error sending form", error);
