@@ -3,7 +3,7 @@ export const catalog = [
         _id: "65465fhf675",
         title: "Catnip",
         description: "Menta para gatos. Relajante y perfumada",
-        price: 1500,
+        price: "1500",
         stock: 10,
         hasDelivery: false,
         pictures: [
@@ -18,7 +18,7 @@ export const catalog = [
         _id: "65465fhf6h7",
         title: "Rascador de Cartón",
         description: "Rascador económico y ecológico para gatos.",
-        price: 1200,
+        price: "1200",
         stock: 15,
         hasDelivery: true,
         pictures: [
@@ -33,7 +33,7 @@ export const catalog = [
         _id: "65465fhfpo9",
         title: "Cama para Gatos",
         description: "Cama suave y cómoda para gatos de todos los tamaños.",
-        price: 3500,
+        price: "3500",
         stock: 8,
         hasDelivery: true,
         pictures: [
@@ -48,7 +48,7 @@ export const catalog = [
         _id: "65465fhf907",
         title: "Juguete Interactivo",
         description: "Juguete de peluche con sonido para mantener entretenido a tu gato.",
-        price: 800,
+        price: "800",
         stock: 20,
         hasDelivery: false,
         pictures: [
@@ -63,7 +63,7 @@ export const catalog = [
         _id: "65465fhf6j8",
         title: "Comedero Doble",
         description: "Plato doble para comida y agua, ideal para gatos pequeños.",
-        price: 1800,
+        price: "1800",
         stock: 12,
         hasDelivery: true,
         pictures: [
