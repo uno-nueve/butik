@@ -16,7 +16,7 @@ export default function Root() {
     console.log(stores);
 
     return (
-        <>
+        <div className="flex flex-col items-center w-full h-full subpixel-antialiased font-workSans">
             {/* <h1>Hello world!</h1>
             <a href="/login">Inicia sesión</a>
             <a href="/signup">Registrate</a>
@@ -29,6 +29,6 @@ export default function Root() {
                 ))} */}
 
             <Outlet />
-        </>
+        </div>
     );
 }

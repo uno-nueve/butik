@@ -73,7 +73,7 @@ export default function RegisterPage() {
     return (
         <div className="flex flex-col items-center justify-around w-full h-screen max-w-screen-sm p-8">
             <div className="text-center">
-                <h1 className="mb-4 text-4xl font-semibold">Registrate en butik</h1>
+                <h1 className="mb-4 text-3xl font-semibold">Registrate en butik</h1>
                 <p>
                     Crea tu tienda en línea y vendé <b>gratis.</b>
                 </p>
@@ -97,7 +97,7 @@ export default function RegisterPage() {
                                         id="username"
                                         name="username"
                                         placeholder="nombre"
-                                        className="focus-visible:outline-none"
+                                        className="w-full focus-visible:outline-none"
                                         onChange={(e) => setUsername(e.currentTarget.value)}
                                     />
                                 </div>
